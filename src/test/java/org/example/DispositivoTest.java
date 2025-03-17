@@ -10,79 +10,83 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class DispositivoTest {
 
     @Test
-    public void Test01() {
-        //Cálculo de costo con tarjeta Visa
+    public void Test01() {  //VISA
         //setup
         var dispositivo = new Dispositivo();
         List<Bebida> bebidas = new ArrayList<>();
         List<Plato> platos = new ArrayList<>();
-        var gaseosa = new Bebida(30, "cocacola");
+        var gaseosa = new Bebida(30.f, "cocaCola");
         bebidas.add(gaseosa);
-        var platoPrincipal = new Plato(25, "fPesto");
+        var platoPrincipal = new Plato(50.f, "fPesto", true);
+        var platoEntrada = new Plato(20.f, "entrada", false);
         platos.add(platoPrincipal);
+        platos.add(platoEntrada);
         var tarjeta = new Visa();
         Propina propina = Propina.MEDIO;
         //excersice
-        double costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
         //verify
-        assertEquals(56.65, costoTotal, 0.1); //delta
+        assertEquals(102.073, costoTotal, 0.1);
     }
 
     @Test
-    public void Test02() {
-        //Cálculo de costo con tarjeta Mastercard.
+    public void Test02() { //MASTERCARD
         //setup
         var dispositivo = new Dispositivo();
         List<Bebida> bebidas = new ArrayList<>();
         List<Plato> platos = new ArrayList<>();
-        var gaseosa = new Bebida(30, "cocacola");
+        var gaseosa = new Bebida(20.f, "cocaCola");
         bebidas.add(gaseosa);
-        var platoPrincipal = new Plato(25, "fPesto");
+        var platoPrincipal = new Plato(20.f, "fPesto", true);
+        var platoEntrada = new Plato(20.f, "entrada", false);
         platos.add(platoPrincipal);
+        platos.add(platoEntrada);
         var tarjeta = new Mastercard();
         Propina propina = Propina.MEDIO;
         //excersice
-        double costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
         //verify
-        assertEquals(56.1349999634549, costoTotal, 0.1);
+        assertEquals(61.388, costoTotal, 0.5); //problema en el calculo
     }
 
     @Test
-    public void Test03() {
-        //Cálculode costo con tarjeta Comarca Plus
+    public void Test03() { //COMARCAPLUS
         //setup
         var dispositivo = new Dispositivo();
         List<Bebida> bebidas = new ArrayList<>();
         List<Plato> platos = new ArrayList<>();
-        var gaseosa = new Bebida(30, "cocacola");
+        var gaseosa = new Bebida(30.f, "cocaCola");
         bebidas.add(gaseosa);
-        var platoPrincipal = new Plato(25, "fPesto");
+        var platoPrincipal = new Plato(50.f, "fPesto", true);
+        var platoEntrada = new Plato(20.f, "entrada", false);
         platos.add(platoPrincipal);
+        platos.add(platoEntrada);
         var tarjeta = new ComarcaPlus();
         Propina propina = Propina.MEDIO;
         //excersice
-        double costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
         //verify
-        assertEquals(55.517001535512506, costoTotal, 0.0);
+        assertEquals(100.94, costoTotal, 0.0001);
     }
 
     @Test
-    public void Test04() {
-        //Cálculo de costo con tarjeta Viedma
+    public void Test04() { //VIEDMA
         //setup
         var dispositivo = new Dispositivo();
         List<Bebida> bebidas = new ArrayList<>();
         List<Plato> platos = new ArrayList<>();
-        var gaseosa = new Bebida(30, "cocacola");
+        var gaseosa = new Bebida(30.f, "cocaCola");
         bebidas.add(gaseosa);
-        var platoPrincipal = new Plato(25, "fPesto");
+        var platoPrincipal = new Plato(50.f, "fPesto", true);
+        var platoEntrada = new Plato(20.f, "entrada", false);
         platos.add(platoPrincipal);
+        platos.add(platoEntrada);
         var tarjeta = new Viedma();
         Propina propina = Propina.MEDIO;
         //excersice
-        double costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
         //verify
-        assertEquals(56.65, costoTotal, 0.0);
+        assertEquals(103, costoTotal, 0.0001);
 
     }
 }

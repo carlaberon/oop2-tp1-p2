@@ -4,24 +4,42 @@ import java.util.List;
 
 public class Dispositivo {
 
-    public double calcularCostoTotal(List<Bebida> bebidas, List<Plato> platos, Tarjeta tarjeta, Propina propina) {
-        double costoBebidas = calcularCostoBebida(bebidas);
-        double costoPlatos = calcularCostoPlatos(platos);
-        double subtotal = costoBebidas + costoPlatos;
-        double montoPropina = subtotal * propina.porcentaje();
+    public float calcularCostoTotal(List<Bebida> bebidas, List<Plato> platos, TarjetaDeCredito tarjeta, Propina propina) {
 
-        return subtotal + montoPropina;
+        float costoBebidas = calcularCostoBebida(bebidas);
+        float costoPlatos = calcularCostoPlatos(platos);
+        float costoPlatosPrincipal = calcularCostoPlatosPrincipal(platos);
+        float descuento = tarjeta.aplicarDescuento(costoBebidas, costoPlatos, costoPlatosPrincipal);
+        float montoPropina = (descuento * propina.porcentaje());
+        return (descuento + montoPropina);
     }
 
-    public double calcularCostoBebida(List<Bebida> bebidas) {
-        double costoBebidas = bebidas.stream().mapToDouble(Bebida::mostrarPrecio).sum();
+    public float calcularCostoBebida(List<Bebida> bebidas) {
+        float costoBebidas = 0.0f;
+        for (Bebida bebida : bebidas) {
+            costoBebidas += bebida.mostrarPrecio();
+        }
         return costoBebidas;
 
     }
 
-    public double calcularCostoPlatos(List<Plato> platos) {
-        double costoPlato = platos.stream().mapToDouble(Plato::mostrarPrecio).sum();
-        return costoPlato;
+    public float calcularCostoPlatos(List<Plato> platos) {
+        float costoPlatos = 0.0f;
+        for (Plato plato : platos) {
+            if (!plato.esPrincipal()) {
+                costoPlatos += plato.mostrarPrecio();
+            }
+        }
+        return costoPlatos;
+    }
 
+    public float calcularCostoPlatosPrincipal(List<Plato> platos) {
+        float costoPlatosPrincipal = 0.0f;
+        for (Plato plato : platos) {
+            if (plato.esPrincipal()) {
+                costoPlatosPrincipal += plato.mostrarPrecio();
+            }
+        }
+        return costoPlatosPrincipal;
     }
 }

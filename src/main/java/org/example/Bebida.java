@@ -1,15 +1,15 @@
 package org.example;
 
 public class Bebida {
-    private double precio;
+    private float precio;
     private String nombre;
 
-    public Bebida(double precio, String nombre) {
+    public Bebida(float precio, String nombre) {
         this.precio = precio;
         this.nombre = nombre;
     }
 
-    public double mostrarPrecio() {
+    public float mostrarPrecio() {
         return precio;
     }
 

@@ -1,15 +1,20 @@
 package org.example;
 
 public class Plato {
-    private double precio;
+    private float precio;
     private String nombre;
+    private boolean principal;
 
-    public Plato(double precio, String nombre) {
+    public Plato(float precio, String nombre, Boolean esPrincipal) {
         this.precio = precio;
         this.nombre = nombre;
     }
 
-    public double mostrarPrecio() {
+    public float mostrarPrecio() {
         return precio;
+    }
+
+    public boolean esPrincipal() {
+        return this.principal;
     }
 }

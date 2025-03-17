@@ -1,9 +1,11 @@
 package org.example;
 
-public class Pedido {
-    double costo;
+import java.math.BigDecimal;
 
-    public Pedido(double costo) {
+public class Pedido {
+    BigDecimal costo;
+
+    public Pedido(BigDecimal costo) {
         this.costo = costo;
     }
 }

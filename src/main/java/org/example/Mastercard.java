@@ -1,9 +1,9 @@
 package org.example;
 
-public class Mastercard implements Tarjeta {
+public class Mastercard implements TarjetaDeCredito {
     @Override
-    public double aplicarDescuento(double costoBebidas, double costoPlatos) {
-        double costoPlatosDescuento = costoPlatos * 0.98f;
-        return costoBebidas + costoPlatosDescuento;
+    public float aplicarDescuento(float costoBebidas, float costoPlatos, float costoPlatosPrincipal) {
+        float descuentoPlatosPrincipal = (costoPlatosPrincipal * 0.98f);
+        return (costoBebidas + costoPlatos + descuentoPlatosPrincipal);
     }
 }
