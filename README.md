@@ -1,5 +1,3 @@
-Test:
-
-- los test no pasan
-
-Polimorfismo
+Orientación a Objetos II
+Trabajo práctico n°1
+Punto 2
