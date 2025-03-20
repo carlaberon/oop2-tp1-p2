@@ -49,6 +49,9 @@ public class DispositivoTest {
         assertEquals(61.388, costoTotal, 0.5); //problema en el calculo
     }
 
+    //Probar beforeEach
+    //méthod p/ código repetido
+
     @Test
     public void Test03() { //COMARCAPLUS
         //setup
