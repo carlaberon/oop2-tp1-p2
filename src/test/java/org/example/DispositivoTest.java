@@ -20,10 +20,17 @@ public class DispositivoTest {
         Pedido nuevoPedido = new Pedido(platosPrincipales, bebidas, 1);
         var tarjeta = new Visa();
         Propina propina = Propina.MEDIO;
+//        RegistroPedidos registroPedidos = new ArchivoDePedidos("F:\\proyectos\\sistemas\\materias2025\\primer cuatrimestre\\orientacion a objetos II\\carpeta\\registroPedidos.txt");
+        String pathFake = "";
+        var registroPedidos = new RegistroPedidosFake(pathFake);
+        String esperado = "22/03/2025 || 15.295501\n";
+        //verify
+        //++ comprobar que registroPedidoFake esté bien programado ++//
         //excersice
-        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina, registroPedidos);
         //verify
         assertEquals(15.2955, costoTotal, 0.1);
+        assertEquals(esperado.replace("\n", System.lineSeparator()), registroPedidos.data());
     }
 
     @Test
@@ -37,10 +44,15 @@ public class DispositivoTest {
         Pedido nuevoPedido = new Pedido(platosPrincipales, bebidas, 1);
         var tarjeta = new Mastercard();
         Propina propina = Propina.MEDIO;
+//        RegistroPedidos registroPedidos = new ArchivoDePedidos("F:\\proyectos\\sistemas\\materias2025\\primer cuatrimestre\\orientacion a objetos II\\carpeta\\registroPedidos.txt");
+        String pathFake = "";
+        var registroPedidos = new RegistroPedidosFake(pathFake);
+        String esperado = "22/03/2025 || 15.244\n";
         //excersice
-        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina, registroPedidos);
         //verify
         assertEquals(15.244, costoTotal, 0.1);
+        assertEquals(esperado.replace("\n", System.lineSeparator()), registroPedidos.data());
     }
 
     @Test
@@ -54,10 +66,15 @@ public class DispositivoTest {
         Pedido nuevoPedido = new Pedido(platosPrincipales, bebidas, 1);
         var tarjeta = new ComarcaPlus();
         Propina propina = Propina.MEDIO;
+//        RegistroPedidos registroPedidos = new ArchivoDePedidos("F:\\proyectos\\sistemas\\materias2025\\primer cuatrimestre\\orientacion a objetos II\\carpeta\\registroPedidos.txt");
+        String pathFake = "";
+        var registroPedidos = new RegistroPedidosFake(pathFake);
+        String esperado = "22/03/2025 || 15.141001\n";
         //excersice
-        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina, registroPedidos);
         //verify
         assertEquals(15.141, costoTotal, 0.1);
+        assertEquals(esperado.replace("\n", System.lineSeparator()), registroPedidos.data());
     }
 
     @Test
@@ -71,10 +88,15 @@ public class DispositivoTest {
         Pedido nuevoPedido = new Pedido(platosPrincipales, bebidas, 1);
         var tarjeta = new TarjetaSinDescuento();
         Propina propina = Propina.MEDIO;
+//        RegistroPedidos registroPedidos = new ArchivoDePedidos("F:\\proyectos\\sistemas\\materias2025\\primer cuatrimestre\\orientacion a objetos II\\carpeta\\registroPedidos.txt");
+        String pathFake = "";
+        var registroPedidos = new RegistroPedidosFake(pathFake);
+        String esperado = "22/03/2025 || 15.45\n";
         //excersice
-        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina, registroPedidos);
         //verify
         assertEquals(15.45, costoTotal, 0.1);
+        assertEquals(esperado.replace("\n", System.lineSeparator()), registroPedidos.data());
     }
 
 }
