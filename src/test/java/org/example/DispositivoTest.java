@@ -13,83 +13,68 @@ public class DispositivoTest {
     public void Test01() {  //VISA
         //setup
         var dispositivo = new Dispositivo();
-        List<Bebida> bebidas = new ArrayList<>();
-        List<Plato> platos = new ArrayList<>();
-        var gaseosa = new Bebida(30.f, "cocaCola");
-        bebidas.add(gaseosa);
-        var platoPrincipal = new Plato(50.f, "fPesto", true);
-        var platoEntrada = new Plato(20.f, "entrada", false);
-        platos.add(platoPrincipal);
-        platos.add(platoEntrada);
+        List<Float> bebidas = new ArrayList<>();
+        bebidas.add(5.0f);
+        List<Float> platosPrincipales = new ArrayList<>();
+        platosPrincipales.add(10.0f);
+        Pedido nuevoPedido = new Pedido(platosPrincipales, bebidas, 1);
         var tarjeta = new Visa();
         Propina propina = Propina.MEDIO;
         //excersice
-        float costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina);
         //verify
-        assertEquals(102.073, costoTotal, 0.1);
+        assertEquals(15.2955, costoTotal, 0.1);
     }
 
     @Test
-    public void Test02() { //MASTERCARD
+    public void Test02() {  //MASTERCARD
         //setup
         var dispositivo = new Dispositivo();
-        List<Bebida> bebidas = new ArrayList<>();
-        List<Plato> platos = new ArrayList<>();
-        var gaseosa = new Bebida(20.f, "cocaCola");
-        bebidas.add(gaseosa);
-        var platoPrincipal = new Plato(20.f, "fPesto", true);
-        var platoEntrada = new Plato(20.f, "entrada", false);
-        platos.add(platoPrincipal);
-        platos.add(platoEntrada);
+        List<Float> bebidas = new ArrayList<>();
+        bebidas.add(5.0f);
+        List<Float> platosPrincipales = new ArrayList<>();
+        platosPrincipales.add(10.0f);
+        Pedido nuevoPedido = new Pedido(platosPrincipales, bebidas, 1);
         var tarjeta = new Mastercard();
         Propina propina = Propina.MEDIO;
         //excersice
-        float costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina);
         //verify
-        assertEquals(61.388, costoTotal, 0.5); //problema en el calculo
+        assertEquals(15.244, costoTotal, 0.1);
     }
 
-    //Probar beforeEach
-    //méthod p/ código repetido
-
     @Test
-    public void Test03() { //COMARCAPLUS
+    public void Test03() {  //COMARCA PLUS
         //setup
         var dispositivo = new Dispositivo();
-        List<Bebida> bebidas = new ArrayList<>();
-        List<Plato> platos = new ArrayList<>();
-        var gaseosa = new Bebida(30.f, "cocaCola");
-        bebidas.add(gaseosa);
-        var platoPrincipal = new Plato(50.f, "fPesto", true);
-        var platoEntrada = new Plato(20.f, "entrada", false);
-        platos.add(platoPrincipal);
-        platos.add(platoEntrada);
+        List<Float> bebidas = new ArrayList<>();
+        bebidas.add(5.0f);
+        List<Float> platosPrincipales = new ArrayList<>();
+        platosPrincipales.add(10.0f);
+        Pedido nuevoPedido = new Pedido(platosPrincipales, bebidas, 1);
         var tarjeta = new ComarcaPlus();
         Propina propina = Propina.MEDIO;
         //excersice
-        float costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina);
         //verify
-        assertEquals(100.94, costoTotal, 0.0001);
+        assertEquals(15.141, costoTotal, 0.1);
     }
 
     @Test
-    public void Test04() { //VIEDMA
+    public void Test04() {  //VIEDMA
         //setup
         var dispositivo = new Dispositivo();
-        List<Bebida> bebidas = new ArrayList<>();
-        List<Plato> platos = new ArrayList<>();
-        var gaseosa = new Bebida(30.f, "cocaCola");
-        bebidas.add(gaseosa);
-        var platoPrincipal = new Plato(50.f, "fPesto", true);
-        var platoEntrada = new Plato(20.f, "entrada", false);
-        platos.add(platoPrincipal);
-        platos.add(platoEntrada);
-        var tarjeta = new Viedma();
+        List<Float> bebidas = new ArrayList<>();
+        bebidas.add(5.0f);
+        List<Float> platosPrincipales = new ArrayList<>();
+        platosPrincipales.add(10.0f);
+        Pedido nuevoPedido = new Pedido(platosPrincipales, bebidas, 1);
+        var tarjeta = new TarjetaSinDescuento();
         Propina propina = Propina.MEDIO;
         //excersice
-        float costoTotal = dispositivo.calcularCostoTotal(bebidas, platos, tarjeta, propina);
+        float costoTotal = dispositivo.calcularCostoTotal(nuevoPedido, tarjeta, propina);
         //verify
-        assertEquals(103, costoTotal, 0.0001);
-
+        assertEquals(15.45, costoTotal, 0.1);
     }
+
 }

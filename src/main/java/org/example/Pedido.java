@@ -1,11 +1,38 @@
 package org.example;
 
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class Pedido {
-    BigDecimal costo;
+    LocalDateTime fechaPedido;
+    private List<Float> platos;
+    private List<Float> bebidas;
+    private int numeroDeMesa;
 
-    public Pedido(BigDecimal costo) {
-        this.costo = costo;
+    public Pedido(List<Float> platos, List<Float> bebidas, int numeroDeMesa) {
+        this.bebidas = bebidas;
+        this.platos = platos;
+        this.numeroDeMesa = numeroDeMesa;
+        this.fechaPedido = LocalDateTime.now();
+    }
+
+    public float costoBebidas() {
+        float costoBebidas = 0.0f;
+        for (Float bebida : this.bebidas) {
+            costoBebidas += bebida;
+        }
+        return costoBebidas;
+    }
+
+    public float costoPlatos() {
+        float costoPlatos = 0.0f;
+        for (Float plato : this.platos) {
+            costoPlatos += plato;
+        }
+        return costoPlatos;
+    }
+
+    public LocalDateTime fechaPedido() {
+        return this.fechaPedido;
     }
 }
