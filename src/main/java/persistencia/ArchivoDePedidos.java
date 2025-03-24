@@ -1,4 +1,6 @@
-package org.example;
+package persistencia;
+
+import org.example.RegistroPedidos;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,12 +11,13 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class ArchivoDePedidos implements RegistroPedidos {
     private String path;
 
     public ArchivoDePedidos(String filePath) {
-        this.path = filePath;
+        this.path = Objects.requireNonNull(filePath);
     }
 
     @Override
@@ -26,7 +29,7 @@ public class ArchivoDePedidos implements RegistroPedidos {
             Files.write(path, Arrays.asList(linea), StandardCharsets.UTF_8,
                     Files.exists(path) ? StandardOpenOption.APPEND : StandardOpenOption.CREATE);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("No se pudo persistir...", e);
         }
     }
 
