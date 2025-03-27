@@ -3,6 +3,7 @@ package org.example;
 public class Dispositivo {
 
     private RegistroPedidos registroPedidos;
+    private ProveedorDeFechas proveedor;
 
     public float calcularCostoTotal(Pedido pedido, TarjetaDeCredito tarjeta, Propina propina, RegistroPedidos registroPedidos) {
 

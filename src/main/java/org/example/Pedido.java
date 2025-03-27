@@ -8,12 +8,14 @@ public class Pedido {
     private List<Float> platos;
     private List<Float> bebidas;
     private int numeroDeMesa;
+    private ProveedorDeFechas proveedor;
 
-    public Pedido(List<Float> platos, List<Float> bebidas, int numeroDeMesa) {
+    public Pedido(List<Float> platos, List<Float> bebidas, int numeroDeMesa, ProveedorDeFechas proveedor) {
+        this.proveedor = proveedor;
         this.bebidas = bebidas;
         this.platos = platos;
         this.numeroDeMesa = numeroDeMesa;
-        this.fechaPedido = LocalDateTime.now();
+        this.fechaPedido = this.proveedor.fecha();
     }
 
     public float costoBebidas() {
