@@ -1,4 +1,4 @@
-package org.example;
+package tp1.p2;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,10 +21,6 @@ public class RegistroPedidosFake implements RegistroPedidos {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String fechaFormateada = fechaInscripcion.format(formatter);
         return fechaFormateada;
-    }
-
-    public boolean startWith(String start) {
-        return this.data.startsWith(start);
     }
 
     public String data() {

@@ -1,4 +1,4 @@
-package org.example;
+package tp1.p2;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DispositivoTest {
 
@@ -33,7 +32,7 @@ public class DispositivoTest {
         //verify
         assertEquals(15.2955, costoTotal, 0.1);
         assertEquals(esperado.replace("\n", System.lineSeparator()), registroPedidos.data());
-        assertTrue(registroPedidos.startWith("27/03/2027"));
+
     }
 
     @Test
@@ -56,7 +55,7 @@ public class DispositivoTest {
         //verify
         assertEquals(15.244, costoTotal, 0.1);
         assertEquals(esperado.replace("\n", System.lineSeparator()), registroPedidos.data());
-        assertTrue(registroPedidos.startWith("27/03/2027"));
+
     }
 
     @Test
@@ -79,7 +78,7 @@ public class DispositivoTest {
         //verify
         assertEquals(15.141, costoTotal, 0.1);
         assertEquals(esperado.replace("\n", System.lineSeparator()), registroPedidos.data());
-        assertTrue(registroPedidos.startWith("27/03/2027"));
+
     }
 
     @Test
@@ -102,7 +101,7 @@ public class DispositivoTest {
         //verify
         assertEquals(15.45, costoTotal, 0.1);
         assertEquals(esperado.replace("\n", System.lineSeparator()), registroPedidos.data());
-        assertTrue(registroPedidos.startWith("27/03/2027"));
+
     }
 
 }

@@ -1,4 +1,4 @@
-package org.example;
+package tp1.p2;
 
 public enum Propina {
     BAJO(0.02F),

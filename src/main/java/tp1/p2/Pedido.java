@@ -1,4 +1,4 @@
-package org.example;
+package tp1.p2;
 
 import java.time.LocalDateTime;
 import java.util.List;

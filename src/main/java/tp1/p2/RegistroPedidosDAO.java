@@ -1,4 +1,4 @@
-package org.example;
+package tp1.p2;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

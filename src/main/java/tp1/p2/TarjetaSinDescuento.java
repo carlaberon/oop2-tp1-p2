@@ -1,4 +1,4 @@
-package org.example;
+package tp1.p2;
 
 public class TarjetaSinDescuento implements TarjetaDeCredito {
     @Override

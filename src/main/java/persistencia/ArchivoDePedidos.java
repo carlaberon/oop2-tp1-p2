@@ -1,6 +1,6 @@
 package persistencia;
 
-import org.example.RegistroPedidos;
+import tp1.p2.RegistroPedidos;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
